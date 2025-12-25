@@ -4,17 +4,7 @@ import numpy as np
 
 
 def crop_and_rotate_boxes(image, boxes, output_folder, original_filename):
-    """Crop and rotate detected oriented boxes from the image.
-
-    Args:
-        image: np.ndarray image.
-        boxes: list of dicts from draw_rotated_boxes_with_order.
-        output_folder: ensure existence (not saving crops here).
-        original_filename: kept for compatibility.
-
-    Returns:
-        List[np.ndarray]: cropped and rotated patch images.
-    """
+    
     import os
     os.makedirs(output_folder, exist_ok=True)
     cropped_images = []
