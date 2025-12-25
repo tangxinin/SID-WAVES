@@ -9,8 +9,8 @@ def parse_args():
     parser = argparse.ArgumentParser(description="YOLO OBB detect + crop classify pipeline")
     parser.add_argument("--input", required=True, help="Input images folder")
     parser.add_argument("--output", required=True, help="Output folder for visualizations and CSV")
-    parser.add_argument("--yolo", default="/kaggle/working/best.pt", help="Path to YOLO model .pt")
-    parser.add_argument("--cls", default="/kaggle/working/final_model.keras", help="Path to Keras classify model")
+    parser.add_argument("--yolo", default=".weights/yolo_model.pt", help="Path to YOLO model")
+    parser.add_argument("--cls", default=".weights/cnn_model.keras", help="Path to Keras classify model")
     return parser.parse_args()
 
 
