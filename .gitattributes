@@ -1,4 +1,7 @@
 *.apk filter=lfs diff=lfs merge=lfs -text
+<<<<<<< HEAD
 .png filter=lfs diff=lfs merge=lfs -text
 .apk filter=lfs diff=lfs merge=lfs -text
 TOC.png filter=lfs diff=lfs merge=lfs -text
+=======
+>>>>>>> 8c44d99d0d45c9a28a561b999d216b603117f459

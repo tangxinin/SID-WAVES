@@ -4,10 +4,7 @@ from preprocessing import preprocess_for_classify
 
 
 def classify_crop(image: np.ndarray, model_classify) -> int:
-    """Binary classify a crop using provided Keras-like model, returns 0 or 1.
 
-    The model is expected to expose a .predict(np.ndarray, verbose=0) method.
-    """
     if image is None:
         raise ValueError("Input image is None. Please check the input.")
 
