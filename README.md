@@ -6,7 +6,9 @@
 
 SID-WAVES is a mobile-based intelligent system designed for the convenient and accurate interpretation of microfluidic chip detection results. By integrating a **YOLOv11-based detection model** and an **Xception-based classification model**, it provides an end-to-end solution from image capture to result output.
 
-![TOC](images/demo_image/TOC.png)
+![Workflow](images/demo_image/workflow.png)
+
+*Figure 1: Workflow of the SID-WAVES system.*
 
 ---
 
@@ -24,13 +26,6 @@ https://github.com/user-attachments/assets/4e76a5fc-0d88-4312-be18-0acd4bf31e4c
 
 *Video: Full prediction process using the SID-WAVES app.*
 
-
----
-
-## 📸 System Workflow
-
-![Workflow](images/demo_image/workflow.png)
-*Figure 1: Workflow of the SID-WAVES system.*
 
 ---
 
@@ -98,11 +93,11 @@ The app is built with **Java** in Android Studio.
   ```
 3. **Testing with Sample Images**
   * We have provided 10 sample images in `images/samples/` for verification.
-  * Run the pipeline:
+  * Run the pipeline, and output is automatically saved to `images/results/`:
+    
   ```bash
   python main.py --input ../images/samples/
   ```
-  output is automatically saved to `images/results/`
   
 4. Visualized Results
   * Detection Results
