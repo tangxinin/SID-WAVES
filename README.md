@@ -63,6 +63,7 @@ SID-WAVES/
 
 ## 🚀Getting Started
 
+
 ### 1. Model Development & Conversion
 The system utilizes a dual-model architecture for high-precision interpretation:
   * **Detection Model (YOLOv11)**: Trained to identify the precise coordinates of reaction chambers using Oriented Bounding Boxes (OBB).
@@ -91,6 +92,8 @@ The app is built with **Java** in Android Studio.
   cd inference_scripts
   pip install -r requirements.txt
   ```
+  * **Typical Install Time**: 2–5 minutes on a "normal" desktop computer (depending on internet speed).
+  
 3. **Testing with Sample Images**
   * We have provided 10 sample images in `images/samples/` for verification.
   * Run the pipeline, and output is automatically saved to `images/results/`:
@@ -98,7 +101,8 @@ The app is built with **Java** in Android Studio.
   ```bash
   python main.py --input ../images/samples/
   ```
-  
+  * **Expected Run Time** : 5–15 seconds for all 10 images on a standard desktop CPU.
+    
 4. Visualized Results
   * Detection Results
     
