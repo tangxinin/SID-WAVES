@@ -5,6 +5,7 @@
 [![YOLO](https://img.shields.io/badge/Model-YOLOv11-blue.svg)]()
 
 SID-WAVES is a mobile-based intelligent system designed for the convenient and accurate interpretation of microfluidic chip detection results. By integrating a **YOLOv11-based detection model** and an **Xception-based classification model**, it provides an end-to-end solution from image capture to result output.
+
 ![TOC](images/demo_image/TOC.png)
 
 ---
@@ -102,19 +103,24 @@ The app is built with **Java** in Android Studio.
   python main.py --input ../images/samples/
   ```
   output is automatically saved to `images/results/`
+  
 4. Visualized Results
   * Detection Results
-  ![Detection Result](images/demo_image/c%20(1).jpg)
-  *Figure 2: Visualization of OBB detection results. Each reaction zone is precisely identified and assigned an index.*
- * Prediction Results
+    
+    ![Detection Result](images/demo_image/c%20(1).jpg)
+  
+    *Figure 2: Visualization of OBB detection results. Each reaction zone is precisely identified and assigned an index.*
+    
+  * Prediction Results
    The output table displays the diagnostic status for different groups:
    
-   | Name | Group | NC | HPV16 | HPV18 |
-   | :--- | :--- | :--- | :--- | :--- |
-   | c (1).jpg | Group1 | 0 | 1 | 0 |
-   | c (1).jpg | Group2 | 0 | 1 | 0 |
-   | c (1).jpg | Group3 | 0 | 1 | 0 |
- *( **0** represents **Negative**, and **1** represents **Positive**.)*  
+     | Name | Group | NC | HPV16 | HPV18 |
+     | :--- | :--- | :--- | :--- | :--- |
+     | c (1).jpg | Group1 | 0 | 1 | 0 |
+     | c (1).jpg | Group2 | 0 | 1 | 0 |
+     | c (1).jpg | Group3 | 0 | 1 | 0 |
+   
+     *(note: **0** represents **Negative**, and **1** represents **Positive**.)*  
        
 ---
 ## 📜License
