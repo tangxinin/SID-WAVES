@@ -111,7 +111,8 @@ The app is built with **Java** in Android Studio.
     *Figure 2: Visualization of OBB detection results. Each reaction zone is precisely identified and assigned an index.*
     
   * Prediction Results
-   The output table displays the diagnostic status for different groups:
+    
+     The output table displays the diagnostic status for different groups:
    
      | Name | Group | NC | HPV16 | HPV18 |
      | :--- | :--- | :--- | :--- | :--- |
