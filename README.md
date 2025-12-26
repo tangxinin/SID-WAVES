@@ -16,14 +16,14 @@ SID-WAVES is a mobile-based intelligent system designed for the convenient and a
    * 1. Transfer the `.apk` file to your Android device.
    * 2. Enable "Install from Unknown Sources" in your device settings.
    * 3. Install and launch **SID-WAVES**.
+        
 See SID-WAVES in action: From image acquisition (camera/album) to intelligent interpretation.
 
-<div align="center">
-  <video src="images/demo_image/app_video.mp4" width="350" controls>
-    Your browser does not support the video tag.
-  </video>
-  <p><i>Video: Full prediction process using the SID-WAVES app.</i></p>
-</div>
+
+https://github.com/user-attachments/assets/4e76a5fc-0d88-4312-be18-0acd4bf31e4c
+
+*Video: Full prediction process using the SID-WAVES app.*
+
 
 ---
 
