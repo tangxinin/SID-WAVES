@@ -4,7 +4,7 @@
 [![Android](https://img.shields.io/badge/Platform-Android-green.svg)]()
 [![YOLO](https://img.shields.io/badge/Model-YOLOv11-blue.svg)]()
 
-SID-WAVES is a mobile-based intelligent system designed for the convenient and accurate interpretation of microfluidic chip detection results. By integrating a **YOLOv11-based detection model** and an **Xception-based classification model**, it provides an end-to-end solution from image capture to result output.
+**SID-WAVES** is a mobile-based intelligent system designed for the convenient and accurate interpretation of microfluidic chip detection results. By integrating a **YOLOv11-based detection model** and an **Xception-based classification model**, it provides an end-to-end solution from image capture to result output.
 
 ![Workflow](images/demo_image/workflow.png)
 
