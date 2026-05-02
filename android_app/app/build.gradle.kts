@@ -46,6 +46,8 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+//    implementation("com.aigestudio:wheelpicker:1.1.2")
+//    implementation(libs.litert)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

@@ -20,14 +20,19 @@ def draw_rotated_boxes_with_order(image_path, results):
         for box, conf, name, xyxy in zip(xywhr, confs, names, xyxyxyxy):
             center_x, center_y, width, height, angle = map(float, box)
 
+            points = np.array(xyxy, dtype=np.float32).reshape((-1, 2))  
             if height > width:
                 angle += math.pi / 2
+                points[[1, 3]] = points[[3, 1]]
+                xyxy = points.flatten().tolist()
 
-            points = np.array(xyxy, dtype=np.float32).reshape((-1, 2))
             distances = [np.linalg.norm(np.array(center_img) - point) for point in points]
             sorted_indices = np.argsort(distances)
             if 0 in sorted_indices[:2]:
                 angle += math.pi
+                points[[0, 2]] = points[[2, 0]]
+                points[[1, 3]] = points[[3, 1]]
+                xyxy = points.flatten().tolist()
 
             boxes.append({
                 "xywhr": [center_x, center_y, width, height, angle],

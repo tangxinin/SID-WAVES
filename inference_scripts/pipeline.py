@@ -10,7 +10,7 @@ from classification import classify_crop
 
 
 def process_folder(folder_path: str, output_folder: str, model_yolo, model_classify) -> None:
-    """Run detection, visualization, crop classification, and CSV export over a folder."""
+
     os.makedirs(output_folder, exist_ok=True)
     records: List[Dict] = []
 
@@ -32,35 +32,44 @@ def process_folder(folder_path: str, output_folder: str, model_yolo, model_class
         crops = crop_and_rotate_boxes(image, boxes, output_folder, image_name)
 
         group_preds = {
-            "Group1": {"NC": None, "H16": None, "H18": None},
-            "Group2": {"NC": None, "H16": None, "H18": None},
-            "Group3": {"NC": None, "H16": None, "H18": None},
+            "Group1": {"NC": None,"NC-result": None,  "H16": None, "H16-result": None,"H18": None,"H18-result": None,},
+            "Group2": {"NC": None,"NC-result": None,  "H16": None, "H16-result": None,"H18": None,"H18-result": None,},
+            "Group3": {"NC": None,"NC-result": None,  "H16": None, "H16-result": None,"H18": None,"H18-result": None,},
         }
 
-        for idx, crop in enumerate(crops, start=1):
-            pred = classify_crop(crop, model_classify)
+        for idx, crop_pair in enumerate(crops, start=1):
+            top_crop = crop_pair["top"]
+            bottom_crop = crop_pair["bottom"]
+            pred_top = classify_crop(top_crop, model_classify)
+            pred_bottom = classify_crop(bottom_crop, model_classify)
 
             if idx in [1, 4, 7]:
                 group = "Group2" if idx == 1 else ("Group1" if idx == 4 else "Group3")
-                group_preds[group]["NC"] = pred
+                group_preds[group]["NC"] = pred_top - pred_bottom
+                group_preds[group]["NC-result"] = 1 if group_preds[group]["NC"] < -0.5 else 0
             elif idx in [2, 5, 8]:
                 group = "Group2" if idx == 2 else ("Group1" if idx == 5 else "Group3")
-                group_preds[group]["H16"] = pred
+                group_preds[group]["H16"] = pred_top - pred_bottom
+                group_preds[group]["H16-result"] = 1 if group_preds[group]["H16"] < -0.5 else 0
             elif idx in [3, 6, 9]:
                 group = "Group2" if idx == 3 else ("Group1" if idx == 6 else "Group3")
-                group_preds[group]["H18"] = pred
+                group_preds[group]["H18"] = pred_top - pred_bottom
+                group_preds[group]["H18-result"] = 1 if group_preds[group]["H18"] < -0.5 else 0
 
         for group_name, preds in group_preds.items():
             records.append({
                 "Name": image_name,
                 "Group": group_name,
                 "NC": preds["NC"],
+                "NC-result": preds["NC-result"],
                 "H16": preds["H16"],
+                "H16-result": preds["H16-result"],
                 "H18": preds["H18"],
+                "H18-result": preds["H18-result"],
             })
 
     # Export CSV
     df = pd.DataFrame(records)
-    csv_path = os.path.join(output_folder, "red_ratio_report.csv")
+    csv_path = os.path.join(output_folder, "result_report.csv")
     df.to_csv(csv_path, index=False, encoding="utf-8-sig")
     print(f"Prediction table saved: {csv_path}")

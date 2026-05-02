@@ -90,7 +90,7 @@ public class DetectTool {
         return vertices;
     }
 
-    public static int predictImage(Interpreter cnnInterpreter, Bitmap image) {
+    public static float predictImage(Interpreter cnnInterpreter, Bitmap image) {
 
         Bitmap preprocessedImage = resizeBitmap(image, 224);
 
@@ -104,7 +104,7 @@ public class DetectTool {
         Log.d("PredictImage", "Model output: " + output[0][0]);
 
 
-        return Math.round(output[0][0]);
+        return output[0][0]; // 返回浮点数预测值
     }
 
 

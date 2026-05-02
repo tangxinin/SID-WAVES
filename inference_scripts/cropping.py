@@ -9,14 +9,14 @@ def crop_and_rotate_boxes(image, boxes, output_folder, original_filename):
     os.makedirs(output_folder, exist_ok=True)
     cropped_images = []
 
-    for _, box in enumerate(boxes, start=1):
+    for idx, box in enumerate(boxes, start=1):
+        xyxyxyxy = box["xyxyxyxy"]
+        box_points = np.array(xyxyxyxy, dtype=np.float32).reshape((-1, 2))
         center_x, center_y, width, height, angle = box["xywhr"]
 
         if width < height:
             width, height = height, width
 
-        rect = ((center_x, center_y), (width, height), math.degrees(angle))
-        box_points = cv2.boxPoints(rect).astype("float32")
 
         dst_pts = np.array([
             [0, height],
@@ -29,6 +29,9 @@ def crop_and_rotate_boxes(image, boxes, output_folder, original_filename):
         cropped = cv2.warpPerspective(image, M, (int(width), int(height)))
 
         cropped_rotated = cv2.rotate(cropped, cv2.ROTATE_90_CLOCKWISE)
-        cropped_images.append(cropped_rotated)
+        h, w = cropped_rotated.shape[:2]
+        cropped_top_half = cropped_rotated[:int(h * 0.5), :]  
+        cropped_bottom_half = cropped_rotated[int(h * 0.5):, :]  
+        cropped_images.append({"top": cropped_top_half, "bottom": cropped_bottom_half})
 
     return cropped_images
