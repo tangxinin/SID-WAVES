@@ -97,11 +97,11 @@ The app is built with **Java** in Android Studio.
     
      The output table displays the diagnostic status for different groups:
    
-     | Name | Group | NC | HPV16 | HPV18 |
-     | :--- | :--- | :--- | :--- | :--- |
-     | c (1).jpg | Group1 | 0 | 1 | 0 |
-     | c (1).jpg | Group2 | 0 | 1 | 0 |
-     | c (1).jpg | Group3 | 0 | 1 | 0 |
+     | Name | Group | NC | NC-result | HPV16 | H16-result | HPV18 | H18-result |
+     | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+     | c (1).jpg | Group1 | 0.80831 | 0 | -0.99245 | 1 | -0.02142 | 0 |
+     | c (1).jpg | Group2 | 0.00732 | 0 | -0.96398 | 1 | 0.00164 | 0 |
+     | c (1).jpg | Group3 | 0.01724 | 0 | -0.99389 | 1 | -0.18824 | 0 |
    
      *(note: **0** represents **Negative**, and **1** represents **Positive**.)*  
        
