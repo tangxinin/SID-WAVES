@@ -89,7 +89,7 @@ The app is built with **Java** in Android Studio.
 4. Visualized Results
   * Detection Results
     
-    ![Detection Result](images/demo_image/c%20(1).jpg)
+
   
     *Figure: Visualization of detection results.*
     
